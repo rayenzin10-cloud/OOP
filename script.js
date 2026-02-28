@@ -9,7 +9,7 @@ function voiture(initial, initial1, initial2, initial3) {
     voiture.descendre = descendre;
     voiture.rouler = rouler;
 
-    return compteur;
+    return voiture;
 }
 
 var monter = function () {
@@ -26,14 +26,14 @@ var descendre = function () {
 };
 
 var rouler = function (mile) {
-    this.kilometrage += mile;
-    this.carburant = kilometrage / nombreDePassager;
     if (this.nombreDePassager === 0) {
         return "pas de conducteur";
     }
     if (this.carburant < this.kilometrage) {
         return "carburant insuffisant";
-    }
+    } else
+        this.kilometrage += mile;
+    this.carburant = this.carburant + kilometrage / nombreDePassager;
 };
 
 var voiture1 = voiture(7, 8, 50, 100)
